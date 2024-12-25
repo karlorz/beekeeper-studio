@@ -118,8 +118,8 @@ export const LicenseModule: Module<State, RootState>  = {
     },
     async sync(context) {
       const status = await Vue.prototype.$util.send('license/getStatus')
-      const licenses = await Vue.prototype.$util.send('license/get')
-      context.commit('set', licenses)
+      // const licenses = await Vue.prototype.$util.send('license/get')
+      // context.commit('set', licenses)
       context.commit('setStatus', status)
       context.commit('setNow', new Date())
     },

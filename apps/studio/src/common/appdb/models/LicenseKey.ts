@@ -58,7 +58,7 @@ export class LicenseKey extends ApplicationEntity {
 
     // Do they have a license at all?
     if (licenses.length === 0) {
-      status.edition = "community";
+      status.edition = "ultimate";
       status.condition.push("No license found");
       return status;
     }
@@ -72,7 +72,7 @@ export class LicenseKey extends ApplicationEntity {
 
     // Is the license not valid?
     if (currentDate > currentLicense.validUntil) {
-      status.edition = "community";
+      status.edition = "ultimate";
       status.condition.push("Expired valid date");
       return status;
     }
@@ -92,7 +92,7 @@ export class LicenseKey extends ApplicationEntity {
       return status;
     }
 
-    status.edition = "community";
+    status.edition = "ultimate";
     status.condition.push("App version not allowed");
     return status;
   }
